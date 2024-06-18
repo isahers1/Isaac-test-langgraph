@@ -39,7 +39,6 @@ def run_chat_llm(state):
     except:
         extra_message = []
 
-    print([message for message in state['messages'][-3:] if len(message.content) > 0]+extra_message)
     ai_response = base_model.invoke([message for message in state['messages']  if len(message.content) > 0]+extra_message)
     return {"messages":[ai_response]}
 
